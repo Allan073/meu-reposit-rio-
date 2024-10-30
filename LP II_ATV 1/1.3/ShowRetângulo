@@ -1,0 +1,20 @@
+public class ShowConta {
+    public static void main(String[] args) {
+        Conta a1 = new Conta(101, "Tan Ah Teck", 88);
+        System.out.println(a1);  
+        Conta a2 = new Conta(102, "Kumar",0); 
+        System.out.println(a2);
+  
+        System.out.println("ID: " + a1.getId());
+        System.out.println("Nome: " + a1.getNome());
+        System.out.println("Saldo: " + a1.getSaldo());
+
+        a1.depositar(100);
+        a1.verificaSaldo();
+        a1.debitar(50);
+        a1.verificaSaldo();
+        a1.transferir(a2, 10);
+        a1.verificaSaldo();
+        a2.verificaSaldo();
+    }
+}
