@@ -1,0 +1,48 @@
+public class Conta {
+    private int id, saldo = 0;
+    private String nome;
+
+    //criação do objeto
+    public Conta(int i, String n, int s){
+        this.id = i;
+        this.nome = n;
+        this.saldo = s;
+    }
+
+    public int getId(){
+        return this.id;
+    }
+    
+    public String getNome(){
+        return this.nome;
+    }
+
+    public int getSaldo(){
+        return this.saldo;
+    }
+
+    public void depositar(int valor){
+		saldo += valor;
+	}
+
+    public void debitar(int valor){
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente ou valor de saque inválido.");
+        }
+	}
+
+    public void transferir(Conta destino, int valor) {
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
+            destino.depositar(valor);
+        } else {
+            System.out.println("Saldo insuficiente ou valor de transferência inválido.");
+        }
+    }
+
+    public void verificaSaldo(){
+		System.out.println("ID:"+getId() + " Nome:" +getNome() + " Saldo:" +getSaldo());
+	}
+}
