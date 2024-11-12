@@ -1,0 +1,78 @@
+5.2-Composição, pois me resultou em um código mais prático e com o funcionamento mais fácil de ser compriendido.
+
+6.7-
+|-----------------------|
+|       Animal          |
+|    <<abstract>>       |
+|-----------------------|
+|+greeting(void)        |
+|-----------------------|    
+            /\
+             |
+     --------------------------------------
+     |                                    |
+|-----------------------|    |---------------------------| 
+|         Gat           |    |         Dog               | 
+|-----------------------|    |---------------------------|
+|+greeting():void       |    |+greeting():void           | 
+|-----------------------|    |+greeting(Another:Dog):void|
+                             |---------------------------|
+                                         /\
+                                          |
+                             |---------------------------|
+                             |         BigDog            |
+                             |---------------------------|
+                             |+greeting():void           |
+                             |+greeting(Another:Dog):void|
+                             |---------------------------|
+                                          
+
+1-Polimorfismo em tempo de compilação: ocorre através da sobrecarga de métodos. O Java sabe qual método será 
+  usado através de sua assinatura durante a o tempo de compilação, isto é, de forma estática. Exemplo disso são 
+  os métodos public void lutar(string maos) e public void lutar(string pes), onde os dois possuem os mesmos 
+  nomes, mas diferenciados através de suas assinaturas, onde o primeiro se refere a lutar com as mãos, e o se-
+  gundo, com os pés.
+
+  Polimorfismo em tempo de execução: occore através da subtituição de método, cuja a maquina virtual Java deci-
+  de qual método usar em tempo de execução, por isso, também chamado de dinâmico. A classe filha tem o mesmo 
+  método declarado na classe pai. Isto é, a classe filha fornece a implementação específica do método que foi
+  fornecido por uma de suas classes pai. Exemplo:
+
+// Classe pai
+class Pai {
+ 
+    // Implementação do método da classe Pai
+    public void metodo()
+    {
+        System.out.println("Método 1");
+    }
+}
+ 
+// Clase Filho
+public class Filho extends Pai {
+ 
+    // Método principal da classe Pai
+    public void metodo()
+    {
+        System.out.println("Método 2");
+    }
+ 
+    // Classe main
+    public static void main(String args[])
+    {
+        Pai teste = new Filho();
+ 
+        teste.metodo();
+    }
+}
+  
+Saída: Método 2
+
+2-Herança: quando uma classe usa(herda) atributos ou métodos vindos de outra classe.
+
+  Composição: quando um objeto é inicializado dentro de uma classe "maior". Caso a classe maior seja deletada,
+              o objeto inicializado dentro dela também deixarar de existir.
+
+  Agregação:  quando um objeto faz parte de um todo, mas a sua existencia não depende disso. Mesmo que o todo 
+              for deletado, o objeto continua a existir.
+                           
